@@ -8,4 +8,3 @@ ListenFIFO=/var/log/dirsrv/slapd-%i/audit
 SocketMode=0660
 SocketUser=dirsrv
 SocketGroup=dirsrv
-Accept=true

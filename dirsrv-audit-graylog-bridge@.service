@@ -1,0 +1,10 @@
+[Unit]
+Description=389 Directory Server Audit Log Bridge to Graylog
+Before=dirsrv.target
+Wants=dirsrv.target
+
+[Service]
+Exec=main.py $GRAYLOG_SERVER $GRAYLOG_PORT
+EnvironmentFile=/etc/default/dirsrv-audit-graylog-bridge
+ConditionPathExists=/etc/default/dirsrv-audit-graylog-bridge
+StandardInput=socket

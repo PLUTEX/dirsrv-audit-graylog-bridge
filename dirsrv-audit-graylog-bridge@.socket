@@ -1,6 +1,6 @@
 [Unit]
 Description=389 Directory Server Audit Log Socket
-Before=dirsrv.target
+Before=dirsrv@%i.service
 
 [Socket]
 ListenFIFO=/var/log/dirsrv/slapd-%i/audit
@@ -9,4 +9,4 @@ SocketUser=dirsrv
 SocketGroup=dirsrv
 
 [Install]
-WantedBy=dirsrv.target
+RequiredBy=dirsrv@%i.service

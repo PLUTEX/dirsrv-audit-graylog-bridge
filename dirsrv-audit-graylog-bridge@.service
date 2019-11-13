@@ -6,7 +6,7 @@ ConditionPathExists=/etc/default/dirsrv-audit-graylog-bridge
 RefuseManualStart=true
 
 [Service]
-Exec=main.py --graylog-host=${GRAYLOG_HOST} --graylog-port=${GRAYLOG_PORT}
+Exec=/opt/dirsrv-audit-graylog-bridge/main.py --graylog-host=${GRAYLOG_HOST} --graylog-port=${GRAYLOG_PORT}
 EnvironmentFile=/etc/default/dirsrv-audit-graylog-bridge
 StandardInput=socket
 StandardOutput=journal

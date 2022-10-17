@@ -45,7 +45,7 @@ def get_handler(graylog_host, graylog_port):
             logging.debug("Ignoring change block due to ignored DN")
             return
 
-        if not set(map(str.lower, change_block.keys())) - ignore_attributes:
+        if change_block.get('changetype') != ['delete'] and not set(map(str.lower, change_block.keys())) - ignore_attributes:
             logging.debug("Ignoring change block because it only contains ignored attributes")
             return
 

@@ -40,13 +40,15 @@ def get_handler(graylog_host, graylog_port):
     gelf_handler = graypy.GELFHandler(graylog_host, graylog_port)
 
     def handler(change_block):
+        logging.debug("Handling change block: %r", change_block)
         if ignore_dn.match(change_block['dn'][0]):
+            logging.debug("Ignoring change block due to ignored DN")
             return
 
         if not set(map(str.lower, change_block.keys())) - ignore_attributes:
+            logging.debug("Ignoring change block because it only contains ignored attributes")
             return
 
-        logging.debug("Handling change block: %r", change_block)
         msg = {
             'version': '1.1',
             'host': socket.getfqdn(),

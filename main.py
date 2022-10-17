@@ -16,7 +16,7 @@ from parser import AuditLogParser
 
 def get_handler(graylog_host, graylog_port):
     ignore_dn = re.compile(
-        '.*,ou=UserPreferences,.*,o=NetscapeRoot$'
+        '.*,ou=UserPreferences,.*,o=NetscapeRoot$|cn=uniqueid generator,cn=config$'
     )
     ignore_attributes = {
         # mandatory attributes

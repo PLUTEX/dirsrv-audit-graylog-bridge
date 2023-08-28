@@ -37,7 +37,7 @@ def get_handler(graylog_host, graylog_port):
         'modifytimestamp',
     }
 
-    gelf_handler = graypy.GELFHandler(graylog_host, graylog_port)
+    gelf_handler = graypy.GELFUDPHandler(graylog_host, graylog_port)
 
     def handler(change_block):
         logging.debug("Handling change block: %r", change_block)
